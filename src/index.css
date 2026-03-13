@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 30% 96%;
+    --foreground: 220 40% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 10%;
+
+    --primary: 220 70% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 260 60% 55%;
+
+    --secondary: 220 60% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 20% 92%;
+    --muted-foreground: 220 20% 45%;
+
+    --accent: 45 90% 55%;
+    --accent-foreground: 220 40% 10%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 160 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 95% 55%;
+    --warning-foreground: 220 40% 10%;
+
+    --border: 220 20% 85%;
+    --input: 220 20% 85%;
+    --ring: 220 70% 45%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(220 70% 45%), hsl(260 70% 50%));
+    --gradient-hero: linear-gradient(180deg, hsl(220 30% 96%), hsl(240 40% 92%));
+    --gradient-glass: linear-gradient(135deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.7));
+    --gradient-gold: linear-gradient(135deg, hsl(45 90% 55%), hsl(35 85% 60%));
+    
+    --shadow-glass: 0 8px 32px hsla(220, 70%, 45%, 0.15);
+    --shadow-card: 0 4px 20px hsla(220, 40%, 10%, 0.1);
+    --shadow-glow: 0 0 50px hsla(260, 70%, 50%, 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-background via-slate-100 to-gray-100 text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Sans', 'Inter', sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-xl border border-white/30 shadow-xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/20;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent;
+  }
+
+  .gradient-gold {
+    @apply bg-gradient-to-r from-accent to-amber-500 bg-clip-text text-transparent;
+  }
+
+  .status-badge {
+    @apply px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm;
+  }
+
+  .status-resolved {
+    @apply bg-success/10 text-success border border-success/20;
+  }
+
+  .status-progress {
+    @apply bg-warning/10 text-warning border border-warning/20;
+  }
+
+  .status-pending {
+    @apply bg-destructive/10 text-destructive border border-destructive/20;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
